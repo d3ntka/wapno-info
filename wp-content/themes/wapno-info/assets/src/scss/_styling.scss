@@ -1,0 +1,43 @@
+html {
+    font-size: 62.5%; //1rem = 10px
+    overflow-x: hidden;
+    background-color: #fff;
+}
+
+body {
+font-size: 2rem;
+overflow-x: hidden;
+
+// line-height: 1.7;
+letter-spacing: 0.04rem;
+}
+
+h1{
+    font-size: 7.2rem;
+    
+}
+
+h2{
+    font-size: 6.2rem;
+
+}
+
+
+.color-dark{
+    color: $dark;
+}
+.color-grey{
+    color: $grey;
+}
+.color-primary{
+    color: $primary;
+}
+.color-white{
+    color: #fff;
+}
+.color-black{
+    color: #000;
+}
+.bg-primary{
+    background-color: $primary;
+}
