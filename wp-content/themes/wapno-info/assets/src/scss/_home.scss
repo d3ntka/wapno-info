@@ -1,0 +1,88 @@
+.home{
+    background-color: $light;
+    .container--front{
+        margin: 2rem;
+        border-radius: $border-radius;
+        background-color: #fff;
+        position: relative;
+
+    }
+    &__hero{
+        &--intro{
+            display: flex;
+            align-items: center;
+            z-index: 10;
+            &:before{
+                content: "";
+                position: absolute;
+                background-image: url("../img/amonite.svg");
+                background-size: cover;
+                left: 0;
+                width: 51rem;
+                height: 51rem;
+                z-index: -1;
+
+            }
+
+        }
+        h1{
+            span{
+                font-weight: 500;
+            }
+        }
+        &--txt{
+            font-size: 2.4rem;
+            line-height: 1.7;
+        }
+    }
+    &__carousel{
+        position: relative;
+        z-index: 20;
+    }
+    &__cats{
+        &--row{
+            position: relative;
+            z-index: 15;
+            padding: 5rem 0;
+        }
+        &--wrap{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        font-size: 2.2rem;
+        border-radius: $border-radius;
+        border: 2px solid $border-light;
+        width: 20rem;
+        height: 20rem;
+        margin-right: 1.6rem;
+        margin-top: 1.6rem;
+        padding: 2rem;
+        line-height: 1.0;
+        i{
+            padding-bottom: 2rem;
+        }
+    }
+    &__find{
+        background-color: $primary;
+        color: #fff;
+        position: relative;
+        z-index: 12;
+        &::before{
+            content: "";
+            background-color: $primary;
+            border-radius: $border-radius;
+            height: 100%;
+            position: absolute;
+            width: 50rem;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    }
+}
