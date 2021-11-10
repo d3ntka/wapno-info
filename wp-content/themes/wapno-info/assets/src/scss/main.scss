@@ -163,7 +163,7 @@ body.admin-bar {
 
 .navbar-brand {
 	img {
-		height: 40px;
+		height: 12rem;
 	}
 }
 
@@ -358,4 +358,6 @@ body.admin-bar {
 @import 'nav';
 @import 'layout';
 @import 'home';
+@import 'news';
+
 

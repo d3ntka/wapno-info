@@ -1,16 +1,12 @@
 .home{
     background-color: $light;
-    .container--front{
-        margin: 2rem;
-        border-radius: $border-radius;
-        background-color: #fff;
-        position: relative;
 
-    }
     &__hero{
         &--intro{
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: space-evenly;
             z-index: 10;
             &:before{
                 content: "";
@@ -19,9 +15,9 @@
                 background-size: cover;
                 left: 0;
                 width: 51rem;
-                height: 51rem;
+                height: 41rem;
                 z-index: -1;
-
+                transform: translateY(5rem);
             }
 
         }
@@ -38,6 +34,61 @@
     &__carousel{
         position: relative;
         z-index: 20;
+        .carousel-inner{
+            width: 115.5rem;
+            height: 56rem;
+            border-radius: 3.5rem;
+            img{
+                object-fit: cover;
+                object-position: center center;
+            }
+        }
+        .carousel-nav{
+            width: 20rem;
+            height: 6rem;
+            background-color: #fff;
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            border-radius: 3rem;
+            display: flex;
+            align-items: center;
+            // z-index: 1;
+        }
+        .carousel-control-next, .carousel-control-prev {
+            z-index: 10;
+            width: 25%;
+        }
+        .carousel-control-next{
+            right: 1rem;
+        }
+        .carousel-control-prev{
+            left: 1rem;
+        }
+        .carousel-indicators {
+            border-radius: 3rem;
+            margin: 0;
+            align-items: center;
+            height: 100%;
+            button{
+                border-radius: 50%;
+                height: 1.4rem;
+                width: 1.4rem;
+                border: 2px solid $dark;
+                background-color: #fff;
+                opacity: 1;
+                &.active{
+                    background-color: $dark;
+                }
+            }
+        }
+        .carousel-control-next-icon {
+            background-image: url("../img/chev-right.svg");
+        }
+        .carousel-control-prev-icon {
+            background-image: url("../img/chev-right.svg");
+            transform: rotate(180deg);
+        }
     }
     &__cats{
         &--row{
@@ -67,6 +118,9 @@
         i{
             padding-bottom: 2rem;
         }
+        &:last-child{
+            margin-right: 0;
+        }
     }
     &__find{
         background-color: $primary;
@@ -79,10 +133,89 @@
             border-radius: $border-radius;
             height: 100%;
             position: absolute;
-            width: 50rem;
+            width: 60rem;
             top: 0;
             left: 0;
             z-index: -1;
+        }
+    }
+
+    .products{
+        position: relative;
+        z-index: 15;
+        padding-bottom: 5rem;
+        &__title{
+            padding: 20rem 0 7rem 0;
+        }
+        &__button{
+            background-color: #fff;
+            position: relative;
+            z-index: 20;
+            font-size: 1.8rem;
+            color: $dark;
+            font-weight: 500;
+            line-height: 1;
+            box-shadow: $box-shadow;
+            border-radius: $border-radius;
+            height: 14rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: auto;
+            background-position: 95% 10%;
+            ::after{
+                content: "";
+                background-image: url('../img/plus.svg');
+                width: 2rem;
+                height: 2rem;
+                bottom: 2rem;
+                left: 2rem;
+                position: absolute;
+            }
+        }
+        &__aux{
+            background-color: $primary;
+            margin-top: 5rem;
+            border-radius: 5.4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            font-weight: 600;
+            padding: 1rem 1rem 1rem 5rem;
+            i{
+                padding-right: 4rem;
+            }
+            span{
+                font-size: 3rem;
+                font-weight: 500;
+            }
+            .chevron_btn{
+                background-color: #fff;
+                padding: 1rem;
+                border-radius: 50%;
+                width: 7rem;
+                height: 7rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 1rem;
+                svg{
+                    transform: translateX(0.2rem);
+                }
+            }
+        }
+        &:before{
+            content: "";
+            position: absolute;
+            background-image: url("../img/amonite.svg");
+            background-size: cover;
+            right: 0;
+            width: 57rem;
+            height: 71rem;
+            z-index: -1;
+            transform: translate(35rem, 23rem);
         }
     }
 }
