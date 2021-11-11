@@ -6,8 +6,40 @@
     position: relative;
     z-index: 1000;
     padding-top: 3rem;
+    z-index: 1500;
+    &::after{
+        background: url("../img/leafs.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 20%;
+        transform: translate(100%,-15%);
+        width: 63rem;
+        height: 63rem;
+        z-index: -1;
+    }
+}
+.navbar-light .navbar-nav .btn-nav{
+    a{
+        letter-spacing: 0.01rem;
+        line-height: 1;
+        border-radius: 2.6rem;
+        padding: 1rem 3rem 1.3rem;
+        color: #fff;
+        background-color: $primary;
+        transition: $transition;
+        &:hover{
+            color: #fff;
+            filter: brightness(1.1);
+        }
+    }
 }
 
+.navbar-light .navbar-nav .nav-link {
+    // color: rgba(0,0,0,.55);
+}
 .footer{
     padding: 10rem 0 5rem 0;
     .titles{
@@ -82,8 +114,26 @@
 .cta{
     padding-top: 15rem;
     margin-top: -5rem;
-    &::before{
-
+    &__leaf{
+        position: relative;
+        z-index: 100;
+        &::before{
+            background: url("../img/leafs.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 20%;
+            transform: translate(-110%,-15%) scaleX(-1);
+            width: 63rem;
+            height: 63rem;
+            z-index: -1;
+            @media (min-width: 1920px){
+                left: 0%;
+                transform: translate(-50%,-15%) scaleX(-1);
+            }
+        }
     }
     &__btn{
         background-color: $secondary;

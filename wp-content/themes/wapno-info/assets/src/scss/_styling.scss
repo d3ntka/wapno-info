@@ -55,3 +55,19 @@ h2{
     letter-spacing: 0.01rem;
     color: $grey;
 }
+
+.btn{
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.01rem;
+    line-height: 1;
+    border-radius: 2.6rem;
+    padding: 1rem 3rem 1.3rem;
+}
+.btn-primary{
+    color: #fff;
+    background-color: $primary;
+    &:hover{
+        color: #fff;
+    }
+}

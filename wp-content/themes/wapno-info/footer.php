@@ -13,7 +13,7 @@
 			<?php
 				endif;
 			?>
-			<div class="container--front">
+			<div class="container--front cta__leaf">
 				<div class="container">
 					<div class="cta">
 						<div class="text-center">
