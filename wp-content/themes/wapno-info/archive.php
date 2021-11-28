@@ -23,8 +23,9 @@ if ( have_posts() ) :
 	</h1>
 </header>
 <?php
-	get_template_part( 'archive', 'loop' );
-else :
+	// get_template_part( 'archive', 'loop' );
+	get_template_part('components/news/news-thumbnail');
+	else :
 	// 404.
 	get_template_part( 'content', 'none' );
 endif;

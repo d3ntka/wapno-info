@@ -17,7 +17,12 @@ if ( have_posts() ) :
 			 * If you want to overload this in a child theme then include a file
 			 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 			 */
-			get_template_part( 'content', 'index' ); // Post format: content-index.php
+			// get_template_part( 'content', 'index' ); // Post format: content-index.php
+			echo '<article class="col-md-6 col-xxl-4" id="'.get_the_ID().'">';
+
+			get_template_part('components/news/news-thumbnail');
+			echo '</article>';
+
 		endwhile;
 	?>
 	</div>

@@ -4,3 +4,45 @@
     background-color: #fff;
     position: relative;
 }
+
+
+
+
+.button__aux{
+    background-color: $primary;
+    // margin-top: 5rem;
+    margin-bottom: 10rem;
+    border-radius: 5.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+    padding: 1rem 1rem 1rem 5rem;
+    transform: translate(0,50%);
+    i{
+        padding-right: 4rem;
+    }
+    span{
+        font-size: 3rem;
+        font-weight: 500;
+    }
+    .chevron_btn{
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: 50%;
+        width: 7rem;
+        height: 7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 1rem;
+        svg{
+            transform: translateX(0.2rem);
+        }
+    }
+}
+
+.padding-cta{
+    padding-bottom: 10rem;
+}

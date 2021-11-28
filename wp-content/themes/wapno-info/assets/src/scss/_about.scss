@@ -1,0 +1,139 @@
+.about{
+    .styled-list ul{
+        list-style: none;
+        li{
+            position: relative;
+            margin-bottom: 3rem;
+            &::before{
+                background-image: url("../img/list-icon.svg");
+                content: "";
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                position: absolute;
+                top: .3rem;
+                left: -3.5rem;
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+    }
+    &__header{
+        padding-bottom: 10rem;
+    }
+    .goals{
+        padding: 13rem 0;
+        &__bg{
+            background-image: url("../img/amonite.svg");
+            background-repeat: no-repeat;
+            background-position: -11rem 5rem;
+            // height: 71rem;
+            // width: 57rem;
+
+        }
+    }
+    .teams{
+        margin-top: 4rem;
+        &__cont{
+            position: relative;
+            z-index: 40;
+        }
+        &__icon{
+            position: absolute;
+            top: -7rem;
+            left: -7rem;
+            z-index: -1;
+        }
+    }
+    .inter{
+        padding: 10rem 0;
+        &__associations{
+            padding: 5rem 0;
+        }
+    }
+    .producers{
+        padding: 12rem 0;
+        .producer{
+            width: 22rem;
+            height: 22rem;
+            background-color: #fff;
+            border-radius: $border-radius;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding: 1rem;
+            &__col:last-child{
+                @include media-breakpoint-up(lg){
+                    margin-right: 9%;
+                }
+            }
+        }
+    }
+
+    .amonit{
+        background-image: url("../img/amonite_bg.png");
+        display: flex;
+        // justify-content: flex-end;
+        align-items:center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 40%;
+        padding: 4rem 0;
+        height: 64rem;
+        border-radius: 2rem;
+        // background-position: -30rem center;
+    }
+    .history{
+        padding: 15rem 0;
+        &__eras{
+            position: relative;
+            padding-top: 9rem;
+            &--cont{
+                padding-top: 8rem;
+                margin-top: 4rem;
+                position: relative;
+                z-index: 15;
+                // padding-right: 6rem;
+                
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: translate(-40%,1rem);
+                    width: 9rem;
+                    height: 9rem;
+                    border: 10px solid #EDF1F3;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    z-index: -1;
+                }
+            }
+            &>div:not(:last-child)>div::after{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translate(0,5rem);
+                width: 100%;
+                height: 1rem;
+                background-color: #EDF1F3;
+                // border: 10px solid #EDF1F3;
+                // border-radius: 50%;
+                z-index: -2;
+            }
+            
+            &--title{
+                color: $secondary;
+                padding-bottom: 3rem;
+            }
+            &--txt{
+
+            }
+        }
+    }
+    .news{
+        padding-top: 5rem;
+    }
+
+}

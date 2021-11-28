@@ -234,9 +234,16 @@ get_header();
 								</div>
 						<?php endwhile; ?>
 					</div>
-					<div class="products__aux">
+					<?php
+					$link = get_field( 'products_aux_button' );
+					if ( $link ) :
+						$link_url = $link['url'];
+						$link_title = $link['title'];
+						$link_target = $link['target'] ? $link['target'] : '_self';
+					?>
+					<a class="button__aux" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
 						<?php if ( $products_aux_button_title = get_field( 'products_aux_button_title' ) ) : ?>
-							<div>
+							<div class="d-flex align-items-center">
 								<i>
 									<svg xmlns="http://www.w3.org/2000/svg" width="52.643" height="49.725" viewBox="0 0 52.643 49.725">
 										<g id="Group_100" data-name="Group 100" transform="translate(-415.654 -303.017)">
@@ -252,26 +259,22 @@ get_header();
 										</g>
 									</svg>
 								</i>
-								<?php echo esc_html( $products_aux_button_title ); ?>
+								<span>
+									<?php echo esc_html( $products_aux_button_title ); ?>
+								</span>
 							</div>
 						<?php endif; ?>
-						<?php
-							$link = get_field( 'products_aux_button' );
-							if ( $link ) :
-								$link_url = $link['url'];
-								$link_title = $link['title'];
-								$link_target = $link['target'] ? $link['target'] : '_self';
-								?>
-							<a class="d-flex align-items-center color-white" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?>
+						
+							<div class="d-flex align-items-center color-white" ><?php echo esc_html( $link_title ); ?>
 							<div class="chevron_btn">
 								<svg xmlns="http://www.w3.org/2000/svg" width="14.295" height="21.901" viewBox="0 0 14.295 21.901">
 									<path id="Path_143" data-name="Path 143" d="M634.556,543.368l10.693,7.271a2.77,2.77,0,0,1,0,4.581l-10.693,7.271" transform="translate(-633.167 -541.979)" fill="none" stroke="#9fb7c2" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
 								</svg>
 							</div>
-							</a>
+							</div>
 
-						<?php endif; ?>
-					</div>
+					</a>
+					<?php endif; ?>
 				<?php endif; ?>
 			</div>
 

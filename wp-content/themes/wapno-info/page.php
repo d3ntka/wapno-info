@@ -25,16 +25,9 @@ the_post();
 				edit_post_link( esc_html__( 'Edit', 'wapno-info' ), '<span class="edit-link">', '</span>' );
 			?>
 		</div><!-- /#post-<?php the_ID(); ?> -->
-		<?php
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-		?>
+
 	</div><!-- /.col -->
-	<?php
-		get_sidebar();
-	?>
+
 </div><!-- /.row -->
 <?php
 get_footer();
