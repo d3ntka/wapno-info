@@ -1,15 +1,8 @@
 			<?php
 				// If Single or Archive (Category, Tag, Author or a Date based page).
 				if ( is_single() || is_archive() ) :
+				echo '<div class="cta-single">';
 			?>
-					</div><!-- /.col -->
-
-					<?php
-						get_sidebar();
-					?>
-
-				</div><!-- /.row -->
-				</div><!-- /.container -->
 			<?php
 				endif;
 			?>
@@ -34,6 +27,12 @@
 					</div>
 				</div>
 			</div>
+			<?php
+				// If Single or Archive (Category, Tag, Author or a Date based page).
+				if ( is_single() || is_archive() ) :
+				echo '</div>';
+				endif;
+			?>
 		</main><!-- /#main -->
 		<footer id="footer" class="footer">
 			<div class="container">

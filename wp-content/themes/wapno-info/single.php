@@ -4,7 +4,7 @@
  */
 
 get_header();
-
+echo '<div class="padding-cta">';
 if ( have_posts() ) :
 	while ( have_posts() ) :
 		the_post();
@@ -26,7 +26,8 @@ if ( $count_posts->publish > '1' ) :
 	$next_post = get_next_post();
 	$prev_post = get_previous_post();
 ?>
-<hr class="mt-5">
+
+
 <div class="post-navigation d-flex justify-content-between">
 	<?php
 		if ( $prev_post ) {
@@ -53,6 +54,25 @@ if ( $count_posts->publish > '1' ) :
 		}
 	?>
 </div><!-- /.post-navigation -->
+
+</div>
+<!-- <div class="container--front"> -->
+        <div class="container">
+            <div class="news__news">
+                <div class="news">
+                    <div class="news__title">
+                        <h2>
+                            Zobacz podobne
+                        </h2>
+                        <div class="subtitle">
+							artykuły, wydarzenia, poradniki i prezentacje
+                        </div>
+                    </div>
+                </div>
+                <?php get_template_part('components/news/news-archive'); ?>
+            </div>
+        </div>
+    <!-- </div> -->
 <?php
 endif;
 
