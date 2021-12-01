@@ -28,21 +28,29 @@
         font-weight: 500;
     }
     .chevron_btn{
-        background-color: #fff;
-        padding: 1rem;
-        border-radius: 50%;
-        width: 7rem;
-        height: 7rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         margin-left: 1rem;
-        svg{
-            transform: translateX(0.2rem);
-        }
     }
 }
+.chevron_btn{
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 50%;
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // margin-left: 1rem;
+    svg{
+        transform: translateX(0.2rem);
+    }
+}
+.chevron_btn--left{
+    svg{
+        transform: rotate(180deg) translateX(0.2rem);
 
+    }
+}
 .padding-cta{
     padding-bottom: 10rem;
 }

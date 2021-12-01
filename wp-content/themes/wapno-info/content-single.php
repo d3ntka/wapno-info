@@ -5,23 +5,36 @@
  *
  */
 
+
+// Get The Post's Author ID
+$authorID = get_the_author_meta('ID');
+$authorname = get_the_author_meta('display_name', $authorID);
+
+// Set the image size. Accepts all registered images sizes and array(int, int)
+$avatarSize = 'thumbnail';
+$imgURL='';
+
+// Get the image URL using the author ID and image size params
+if (function_exists('get_wpupa_url'))  
+	$imgURL = get_wpupa_url($authorID, ['size' => $avatarSize]);
+
 ?>
 
 <?php
 get_template_part('components/breadcrumbs/breadcrumbs');
 ?>
 <div class="news-single">
-	<div class="container">
+	<div class="container news-single__cont-img">
 		<div class="row">
 		<?php
 		if (has_post_thumbnail()) :
-			echo '<div class="col-12 news-thumb">' . '<img src=' . get_the_post_thumbnail_url(get_the_ID(), 'full') . '></div>';
+			echo '<div class="col-12"><div class="news-thumb">' . '<img src=' . get_the_post_thumbnail_url(get_the_ID(), 'full') . '></div></div>';
 		endif;
 		?>
 
 		</div>
 	</div>
-	<div class="container--front">
+	<div class="container--front news-single__content">
 		<div class="container">
 	
 		<div class="row justify-content-center">
@@ -33,9 +46,13 @@ get_template_part('components/breadcrumbs/breadcrumbs');
 						if ('post' === get_post_type()) :
 						?>
 							<div class="meta">
-								<?php echo get_the_author(); ?>
+								
+								<?php 
+								echo '<img class="news__avatar" src="'. $imgURL .'" alt="'. $authorname .'">';
 
-								<?php echo get_the_date('d-m-Y '); ?>
+
+								echo get_the_author() . ' ' . get_the_date('d-m-Y '); 
+								?>
 
 							</div><!-- /.entry-meta -->
 						<?php
