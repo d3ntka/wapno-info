@@ -7,6 +7,7 @@ $authorname = get_the_author_meta('display_name', $authorID);
 $avatarSize = 'thumbnail';
 $imgURL='';
 
+
 // Get the image URL using the author ID and image size params
 if (function_exists('get_wpupa_url'))  
 	$imgURL = get_wpupa_url($authorID, ['size' => $avatarSize]);
@@ -26,7 +27,7 @@ if (function_exists('get_wpupa_url'))
 
                 <?php echo get_the_author();?>
             </div>
-            <div class="news-thumbnail__date">
+            <div class="news-thumbnail__date date">
                 <?php echo get_the_date( 'd-m-Y '); ?>
             </div>
         </div>

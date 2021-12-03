@@ -494,7 +494,8 @@ function wapno_info_scripts_loader() {
 	}
 
 	// 2. Scripts.
-	wp_enqueue_script( 'mainjs', get_template_directory_uri() . '/assets/js/main.bundle.js', array(), $theme_version, true );
+	wp_enqueue_script( 'isotopejs', get_template_directory_uri() . '/assets/js/isotope.pkgd.min.js', array(), $theme_version, true );
+	wp_enqueue_script( 'mainjs', get_template_directory_uri() . '/assets/js/main.bundle.js', array('jquery'), $theme_version, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -522,3 +523,17 @@ function cc_mime_types($mimes) {
     return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');
+
+
+function show_tags() {
+    $post_tags = get_the_tags();
+    $separator = ' ';
+    $output = '';
+ 
+    if ( ! empty( $post_tags ) ) {
+        foreach ( $post_tags as $tag ) {
+            $output .= __( $tag->name ) . $separator;
+        }
+    }
+    return trim( $output, $separator );
+}
