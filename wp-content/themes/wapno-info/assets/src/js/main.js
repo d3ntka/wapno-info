@@ -130,4 +130,13 @@ var $grid = $('.isotope-cont').isotope({
 	$grid.isotope({ sortAscending : false });
   });
 
+	//   ustawienie wyboru na dropdown
+  $(".dropdown-menu li a").on( 'click' , function(){
+	$(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+	$(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+  });
+  
+
+
+
 } )( jQuery );

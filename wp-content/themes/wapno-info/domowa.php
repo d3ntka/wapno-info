@@ -15,6 +15,7 @@ get_header();
 			<div class="row home__hero">
 				<div class="col-4 home__hero--intro">
 					<h1>Wapno<br><span>Dar natury</span></h1>
+					
 					<div class="home__hero--txt">
 						Ekologiczne budownictwo<br>
 						Zdrowe rolnictwo<br>

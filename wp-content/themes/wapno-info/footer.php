@@ -19,11 +19,11 @@
 						</div>
 					</div>
 					<div class="cta__btn--wrap">
-						<div class="cta__btn">
+						<a href="#footer" class="cta__btn">
 							<svg xmlns="http://www.w3.org/2000/svg" width="30.084" height="19.224" viewBox="0 0 30.084 19.224">
 								<path id="Path_136" data-name="Path 136" d="M634.556,543.368l15.658,10.646a4.056,4.056,0,0,1,0,6.708l-15.658,10.646" transform="translate(572.41 -633.514) rotate(90)" fill="none" stroke="#272924" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
 							</svg>
-						</div>
+						</a>
 					</div>
 				</div>
 			</div>

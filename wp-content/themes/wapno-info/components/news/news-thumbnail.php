@@ -13,11 +13,11 @@ if (function_exists('get_wpupa_url'))
 	$imgURL = get_wpupa_url($authorID, ['size' => $avatarSize]);
 
 ?>
-<div class="news-thumbnail card">
+<a class="news-thumbnail card" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
     <?php if ( has_post_thumbnail( ) ) : ?>
-        <a class="news-thumbnail__img" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+        <div class="news-thumbnail__img">
             <?php the_post_thumbnail( 'large' ); ?>
-        </a>
+        </div>
     <?php endif; ?>
     <div class="news-thumbnail__body card-body">
 
@@ -32,9 +32,24 @@ if (function_exists('get_wpupa_url'))
             </div>
         </div>
         <div class="news-thumbnail__title">
-        
             <?php the_title(); ?>
         </div>
-
+        <div class="news-thumbnail__expand">
+            <div class="news-thumbnail__excerpt">
+                <?php the_excerpt(); ?>
+            </div>
+            <div class="news-thumbnail__see-more">
+                <span>
+                    <?php _e("Zobacz więcej", 'wapno-info' ); ?>
+                </span>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="9.685" height="14.496" viewBox="0 0 9.685 14.496">
+                        <g id="Group_259" data-name="Group 259" transform="translate(1.389 1.389)">
+                            <path id="Path_143" data-name="Path 143" d="M634.556,543.368l6.553,4.455a1.7,1.7,0,0,1,0,2.807l-6.553,4.455" transform="translate(-634.556 -543.368)" fill="none" stroke="#272924" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+                        </g>
+                    </svg>
+                </i>
+            </div>
+        </div>
     </div>
-</div>
+</a>
