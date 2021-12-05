@@ -70,9 +70,16 @@
             color: $dark;
             border-radius: 2rem;
             font-size: 2.4rem;
-            display: inline;
-            padding: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 1.5rem 1.2rem 1.5rem;
             margin-top: 3rem;
+            line-height: 1;
+            &:hover{
+                background-color: $secondary;
+                color: #fff;
+            }
         }
         .map{
             display: flex;
@@ -97,8 +104,13 @@
 .wpcf7{
     button, input, optgroup, select, textarea {
         background-color: transparent;
-        border: none;
+        border: 1px solid transparent;
         border-bottom: 1px solid $secondary;
+        outline: none;
+        transition: $transition;
+        &:focus{
+            border: 1px solid $secondary;
+        }
     }
     textarea{
         max-height: 15rem;
@@ -109,6 +121,11 @@
        color: #fff;
        font-weight: 500;
        padding: 1rem 2rem;
+       border: none;
+       transition: $transition;
+       &:hover{
+           background-color: $primary;
+       }
     }
 }
 
@@ -146,6 +163,9 @@
         justify-content: center;
         position: relative;
         z-index: 50%;
+        svg{
+            transition: $transition;
+        }
         &::before{
             content: "";
             padding: 1rem;
@@ -164,6 +184,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        &:hover{
+            svg{
+                transform: translateY(1rem);
+            }
         }
     }
 }

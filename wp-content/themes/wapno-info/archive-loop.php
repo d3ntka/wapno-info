@@ -45,10 +45,9 @@ $categories = get_categories( array(
 			</svg>
 				<?php _e( 'KATEGORIA: ', 'wapno-info' ); ?>
 			</span>
-			<!-- <?php dropdown_tags(); ?> -->
 			<div class="dropdown">
 				<button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuTags" data-bs-toggle="dropdown" aria-expanded="false">
-				<?php _e("Wybierz", "wapno-info"); ?>
+				<?php _e("WSZYSTKIE", "wapno-info"); ?>
 				</button>
 				<ul class="dropdown-menu button-group filters-button-group" aria-labelledby="dropdownMenuTags" data-filter-group="tags" id="tag">
 					<li><a class="button dropdown-item" href="#" data-filter="*" value="all"><?php _e("Wszystkie", "wapno-info"); ?></a></li>
@@ -96,7 +95,7 @@ $categories = get_categories( array(
 
 			<div class="dropdown">
 				<button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenu-sorting" data-bs-toggle="dropdown" aria-expanded="false">
-					<?php _e("Wybierz", "wapno-info"); ?>
+					<?php _e("OD NAJNOWSZYCH", "wapno-info"); ?>
 				</button>
 				<ul class="dropdown-menu sort-by-button-group" aria-labelledby="dropdownMenu-sorting">
 					<li><a class="dropdown-item desc" href="#"><?php _e("Od Najnowszych", "wapno-info"); ?></a></li>

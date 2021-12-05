@@ -80,9 +80,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="call-btn">
+							<a class="call-btn" href="tel:+48 12 626 18 76">
 								Zadzwoń
-							</div>
+							</a>
 							<div class="map">
 								<i>
 									<svg xmlns="http://www.w3.org/2000/svg" width="43.625" height="56.677" viewBox="0 0 43.625 56.677">

@@ -2,12 +2,18 @@
     background-color: $light;
 
     &__hero{
+        @include media-breakpoint-down(xl){
+            margin-bottom: 4rem;
+        }
         &--intro{
             display: flex;
             align-items: flex-start;
             flex-direction: column;
             justify-content: space-evenly;
             z-index: 10;
+            @include media-breakpoint-down(xl){
+                min-height: 40rem;
+            }
             &:before{
                 content: "";
                 position: absolute;
@@ -30,15 +36,46 @@
             font-size: 2.4rem;
             line-height: 1.7;
         }
+        &--link{
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            line-height: 1;
+            transition: $transition;
+            font-weight: 600;
+            svg, g, path{
+                stroke: $primary;
+                transition: $transition;
+            }
+            &:hover{
+                color: $secondary;
+                svg, g, path{
+                    stroke: $secondary;
+                }
+
+            }
+        }
     }
     &__carousel{
         position: relative;
         z-index: 20;
+        @include media-breakpoint-down(xl){
+            margin-bottom: 4rem;
+        }
         .carousel-inner{
-            width: 115.5rem;
-            height: 56rem;
+            max-width: 115.5rem;
+            width: 100%;
+            // height: 56rem;
+            aspect-ratio: 2 / 1;
+            @include media-breakpoint-up(xxl){
+                width: 135%;
+            }
             border-radius: 3.5rem;
+            .carousel-item{
+                height: 100%;
+            }
             img{
+                height: inherit;
                 object-fit: cover;
                 object-position: center center;
             }
@@ -95,6 +132,9 @@
             position: relative;
             z-index: 15;
             padding: 5rem 0;
+            @include media-breakpoint-down(md){
+                justify-content: center;
+            }
         }
         &--wrap{
             display: flex;
@@ -119,7 +159,9 @@
             padding-bottom: 2rem;
         }
         &:last-child{
-            margin-right: 0;
+            @include media-breakpoint-up(xxl){
+                margin-right: 0;
+            }
         }
     }
     &__find{
@@ -127,6 +169,7 @@
         color: #fff;
         position: relative;
         z-index: 12;
+        border: none;
         &::before{
             content: "";
             background-color: $primary;
@@ -137,12 +180,20 @@
             top: 0;
             left: 0;
             z-index: -1;
+            transition: $transition;
+
+        }
+        &:hover{
+            color: #fff;
+            &::before{
+                background-color: $secondary;
+            }
         }
     }
 
     .products{
         position: relative;
-        z-index: 15;
+        z-index: 105;
         padding-bottom: 5rem;
         &__title{
             padding: 20rem 0 7rem 0;
@@ -164,7 +215,8 @@
             background-repeat: no-repeat;
             background-size: auto;
             background-position: 95% 10%;
-            ::after{
+            transition: $transition;
+            &::after{
                 content: "";
                 background-image: url('../img/plus.svg');
                 width: 2rem;
@@ -172,6 +224,9 @@
                 bottom: 2rem;
                 left: 2rem;
                 position: absolute;
+            }
+            &:hover{
+                box-shadow: $box-shadow-darker;
             }
         }
         &__aux{

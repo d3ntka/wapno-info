@@ -1,6 +1,6 @@
 <div class="breadcrumbs__wrap">
     <div class="container breadcrumbs">
-        <a href="" class="breadcrumbs__home">
+        <a href="<?php echo get_home_url(); ?>" class="breadcrumbs__home">
             <!-- <div class="breadcrumbs__home--icon"> -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="12.962" height="14.139" viewBox="0 0 12.962 14.139">
                     <g id="Group_124" data-name="Group 124" transform="translate(-700.287 -542.5)">

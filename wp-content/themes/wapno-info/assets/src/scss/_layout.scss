@@ -3,6 +3,7 @@
     border-radius: $border-radius;
     background-color: #fff;
     position: relative;
+    // max-width: 1880px;
 }
 
 
@@ -20,15 +21,37 @@
     font-weight: 600;
     padding: 1rem 1rem 1rem 5rem;
     transform: translate(0,50%);
+    transition: $transition;
     i{
         padding-right: 4rem;
     }
     span{
+        
         font-size: 3rem;
+        color: #fff;
         font-weight: 500;
     }
     .chevron_btn{
         margin-left: 1rem;
+        svg, g, path{
+            stroke: $primary;
+        }
+    }
+    &:hover{
+        background-color: $secondary;
+        .chevron_btn{
+            svg, g, path{
+                stroke: $secondary;
+            }
+        }
+    }
+    @include media-breakpoint-down(sm){
+        justify-content: center;
+        flex-wrap: wrap;
+        padding-left: 3rem;
+        span{
+            font-size: 2rem;
+        }
     }
 }
 .chevron_btn{
@@ -53,4 +76,12 @@
 }
 .padding-cta{
     padding-bottom: 10rem;
+}
+
+.btn-white{
+    background-color: #fff;
+    border-radius: 2rem;
+    outline: none;
+    box-shadow: none;
+    text-transform: uppercase;
 }

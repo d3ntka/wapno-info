@@ -144,6 +144,25 @@
                     "maxlength": "",
                     "rows": "",
                     "new_lines": ""
+                },
+                {
+                    "key": "field_61ad04032a145",
+                    "label": "ID",
+                    "name": "product_id",
+                    "type": "text",
+                    "instructions": "To pole służy do dodania skrótu, który można wykorzystać do linkowania z innej strony",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         },
@@ -307,5 +326,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1636651862
+    "modified": 1638728765
 }
