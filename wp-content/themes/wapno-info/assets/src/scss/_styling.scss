@@ -90,6 +90,8 @@ a{
     }
 }
 .btn-outline-secondary{
+    border-width: 2px;
+    color: $dark;
     &:hover{
         color: #fff;
         background-color: rgba($secondary,0.85);
@@ -100,4 +102,8 @@ a{
         background-color: $secondary;
         color: #fff;
     }
+}
+
+.icon-bktowht{
+    filter: grayscale(1) invert(1);
 }

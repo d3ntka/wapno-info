@@ -10,8 +10,32 @@
                     margin-right: 1rem;
                     margin-bottom: 1rem;
                     text-transform: uppercase;
-                    &.is-checked{
+                    letter-spacing: $condensed;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
 
+                    &.is-checked{
+                        background-color: var(--hover-color);
+                        color: #fff;
+                    }
+                    &:hover{
+                        background-color: var(--hover-color);
+                    }
+                    &:focus{
+                        background-color: var(--hover-color);
+                    }
+                    &:active{
+                        background-color: var(--hover-color);
+                    }
+                    &.default{
+                        &.is-checked{
+                            background-color: $secondary;
+                        }
+                        &:active{
+                            background-color: $secondary;
+                        }
                     }
                 }
         }
@@ -117,11 +141,50 @@
         &__img{
             position: relative;
             // z-index: -1;
-            padding: 0 1rem;
-            img{
+            margin: 0 1rem;
+            .wp-post-image{
                 border-radius: 1.2rem;
                 width: 100%;
                 height: auto;
+            }
+        }
+        &__tags{
+            position: absolute;
+            gap: 0.8rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            top: 1.6rem;
+            left: 1.6rem;
+
+            div{
+                padding: 0.3rem 0.7rem 0.5rem 0.7rem;
+                background-color: $primary;
+                border-radius: 2rem;
+                color: #fff;
+                font-size: 1.2rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: $condensed;
+
+            }
+        }
+        &__cats{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            bottom: 1.6rem;
+            left: 0;
+            // ikona kategorii
+            div{
+                padding: 1rem 1.5rem;
+                border-radius: 0 2rem 2rem 0;
+                color: #fff;
+                font-size: 1.2rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: $condensed;
             }
         }
         &__body{

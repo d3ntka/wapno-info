@@ -2,6 +2,7 @@
 // Get The Post's Author ID
 $authorID = get_the_author_meta('ID');
 $authorname = get_the_author_meta('display_name', $authorID);
+$post_tags = get_the_tags();
 
 // Set the image size. Accepts all registered images sizes and array(int, int)
 $avatarSize = 'thumbnail';
@@ -16,6 +17,30 @@ if (function_exists('get_wpupa_url'))
 <a class="news-thumbnail card" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
     <?php if ( has_post_thumbnail( ) ) : ?>
         <div class="news-thumbnail__img">
+            <div class="news-thumbnail__tags">
+                <!-- <div class=""> -->
+                    <?php
+                    if ( $post_tags ) {
+                        foreach( $post_tags as $tag ) {
+                        echo '<div>' . $tag->name . '</div>'; 
+                        }
+                    }
+                    ?>
+                <!-- </div> -->
+            </div>
+            <div class="news-thumbnail__cats">
+                <!-- <div class=""> -->
+                    <?php
+                    $category = get_the_category();
+                    $post_cat = $category[0]->cat_name;
+                    $term_id = $category[0]->term_id;
+                    $cat_color = get_term_meta($term_id, 'cc_color', true);
+                    echo '<div style="background-color:' . $cat_color . '" >';
+                    ?>
+                    <img class="icon-bktowht" src="<?php echo z_taxonomy_image_url($term_id); ?>" />
+                    </div>
+                <!-- </div> -->
+            </div>
             <?php the_post_thumbnail( 'large' ); ?>
         </div>
     <?php endif; ?>

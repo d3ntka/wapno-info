@@ -29,10 +29,14 @@ $categories = get_categories( array(
 <div class="filters">
 
 	<div class="button-group filters-button-group filters__top" data-filter-group="cats">
-		<button class="button btn btn-outline-secondary is-checked" data-filter="*"><?php _e("zobacz wszystko", "wapno-info"); ?></button>
+		<button class="button btn btn-outline-secondary is-checked default" data-filter="*"><?php _e("zobacz wszystko", "wapno-info"); ?></button>
 		<?php foreach( $categories as $category ) {
 				$category = esc_html( $category->name );
-				echo '<button class="button btn btn-outline-secondary ' . $category . '" data-filter=".' . $category . '">' . $category .  '</button>';
+				$term_id = get_cat_ID ( $category );
+				$cat_color = get_term_meta($term_id, 'cc_color', true);
+				?>
+				<?php
+				echo '<button style="border-color: ' . $cat_color . '; --hover-color:' . $cat_color . '" class="button btn btn-outline-secondary ' . $category . '" data-filter=".' . $category . '"><img src="' . z_taxonomy_image_url($term_id) . '" /><span>' . $category .  '</span></button>';
 			}
 		?>
 	</div>
