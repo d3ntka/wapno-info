@@ -15,25 +15,36 @@
                     align-items: center;
                     justify-content: center;
                     gap: 0.5rem;
+                    transition: $transition;
+                    
+                    img{
+                        transition: $transition;
+                    }
 
                     &.is-checked{
                         background-color: var(--hover-color);
                         color: #fff;
+                        img{
+                            filter: brightness(0) invert(1);
+                        }
                     }
-                    &:hover{
+                    &:hover,&:active,&:focus{
                         background-color: var(--hover-color);
+                        img{
+                            filter: brightness(0) invert(1);
+                        }
                     }
-                    &:focus{
-                        background-color: var(--hover-color);
-                    }
-                    &:active{
-                        background-color: var(--hover-color);
-                    }
+                    // &:focus{
+                    //     background-color: var(--hover-color);
+                    // }
+                    // &:active{
+                    //     background-color: var(--hover-color);
+                    // }
                     &.default{
                         &.is-checked{
                             background-color: $secondary;
                         }
-                        &:active{
+                        &:hover,&:active{
                             background-color: $secondary;
                         }
                     }
@@ -78,25 +89,7 @@
         margin-bottom: 1.6rem;
         // z-index: 30;
     }
-    &-blog:hover{
-        color: $dark;
-        .news-thumbnail{
-            &__title{
-                max-height: 15rem;
-                padding-top: 1rem;
 
-            }
-            &__expand{
-                max-height: 25rem;
-                padding-bottom: 2rem;
-                box-shadow: 0px 25px 25px rgba(#000,.15);
-
-            }
-            &__body{
-                padding-bottom: 0rem;
-            }
-        }
-    }
     &__title{
         text-align: center;
         h1{
@@ -142,6 +135,14 @@
             position: relative;
             // z-index: -1;
             margin: 0 1rem;
+            // height: 30rem;
+            // border: 2px solid $primary;
+            border-radius: 1.2rem;
+            aspect-ratio: 4.48/3;
+            // background-color: rgba($color: $primary, $alpha: 0.2);
+            background: rgb(159,183,194);
+            background: linear-gradient(120deg, rgba(159,183,194,0.2) 20%, rgba(159,183,194,0.4) 70%); 
+
             .wp-post-image{
                 border-radius: 1.2rem;
                 width: 100%;
@@ -158,7 +159,7 @@
             left: 1.6rem;
 
             div{
-                padding: 0.3rem 0.7rem 0.5rem 0.7rem;
+                padding: 0.5rem 0.8rem;
                 background-color: $primary;
                 border-radius: 2rem;
                 color: #fff;
@@ -177,7 +178,7 @@
             bottom: 1.6rem;
             left: 0;
             // ikona kategorii
-            div{
+            &--wrap{
                 padding: 1rem 1.5rem;
                 border-radius: 0 2rem 2rem 0;
                 color: #fff;
@@ -185,7 +186,20 @@
                 font-weight: 600;
                 text-transform: uppercase;
                 letter-spacing: $condensed;
+                display: flex;
+                align-items: center;
+                gap: 0.3rem;
+
             }
+            // &--name{
+            //     overflow: hidden;
+            //     max-height: 2rem;
+            //     max-width: 0;
+            //     // span{
+            //         word-break: keep-all;
+            //         inline-size: 10rem;
+            //     // }
+            // }
         }
         &__body{
             // padding-left: 3rem;
@@ -273,16 +287,98 @@
             }
         }
     }
+
+    // COVER PHOTO NA SINGLE
     &-thumb{
         width: 100%;
         height: 32rem;
         overflow: hidden;
         border-radius: 1.2rem;
-        img{
+        position: relative;
+        background: linear-gradient(120deg, rgba(159,183,194,0.2) 20%, rgba(159,183,194,0.4) 70%), rgba($color: #fff, $alpha: 1.0); 
+        // img.cover-photo{
+        //     width: 100%;
+        //     height: auto;
+        //     object-fit: cover;
+        //     object-position: center center;
+        // }
+        .cover-photo{
+            width: inherit;
+            height: inherit;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50% 20%;
+        }
+        &__taxonomy{
+            position: absolute;
             width: 100%;
-            height: auto;
-            object-fit: cover;
-            object-position: center center;
+            left: 0;
+            bottom: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &__tags{
+            gap: 0.8rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-right: 1rem;
+
+            div{
+                padding: 0.5rem 0.8rem;
+                background-color: $secondary;
+                border-radius: 2rem;
+                color: #fff;
+                font-size: 1.2rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: $condensed;
+
+            }
+        }
+        &__cats{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+
+            &--wrap{
+                padding: 1.5rem 2rem;
+                border-radius: 0 2rem 2rem 0;
+                color: #fff;
+                font-size: 1.2rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: $condensed;
+                display: flex;
+                align-items: center;
+                gap: 0.3rem;
+
+            }
+        }
+
+    }
+
+
+
+
+    &-blog:hover{
+        color: $dark;
+        .news-thumbnail{
+            &__title{
+                max-height: 15rem;
+                padding-top: 1rem;
+
+            }
+            &__expand{
+                max-height: 25rem;
+                padding-bottom: 2rem;
+                box-shadow: 0px 25px 25px rgba(#000,.15);
+
+            }
+            &__body{
+                padding-bottom: 0rem;
+            }
         }
     }
     &-single{
@@ -291,7 +387,7 @@
             z-index: 100;
         }
         &__content{
-            margin-top: -8rem;
+            margin-top: -7rem;
         }
         title{
             line-height: 1.2;

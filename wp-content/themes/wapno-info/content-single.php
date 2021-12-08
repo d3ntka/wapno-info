@@ -9,6 +9,11 @@
 // Get The Post's Author ID
 $authorID = get_the_author_meta('ID');
 $authorname = get_the_author_meta('display_name', $authorID);
+$post_tags = get_the_tags();
+$category = get_the_category();
+$post_cat = $category[0]->cat_name;
+$term_id = $category[0]->term_id;
+$cat_color = get_term_meta($term_id, 'cc_color', true);
 
 // Set the image size. Accepts all registered images sizes and array(int, int)
 $avatarSize = 'thumbnail';
@@ -18,6 +23,9 @@ $imgURL='';
 if (function_exists('get_wpupa_url'))  
 	$imgURL = get_wpupa_url($authorID, ['size' => $avatarSize]);
 
+
+
+
 ?>
 
 <?php
@@ -26,12 +34,32 @@ get_template_part('components/breadcrumbs/breadcrumbs');
 <div class="news-single">
 	<div class="container news-single__cont-img">
 		<div class="row">
-		<?php
-		if (has_post_thumbnail()) :
-			echo '<div class="col-12"><div class="news-thumb">' . '<img src=' . get_the_post_thumbnail_url(get_the_ID(), 'full') . '></div></div>';
-		endif;
-		?>
-
+			<div class="col-12">
+				<div class="news-thumb">
+				<?php
+				if (has_post_thumbnail()) :
+					$cover_img = get_the_post_thumbnail_url(get_the_ID(), 'full');
+					echo '<div class="cover-photo" style="background-image:url(' . $cover_img . ')"></div>';
+				endif;
+				?>
+				<div class="news-thumb__taxonomy">
+					<div class="news-thumb__cats--wrap" style="background-color: <?=$cat_color;?>">
+						<img class="icon-bktowht" src="<?php echo z_taxonomy_image_url($term_id); ?>"/>
+						<div class="news-thumb__cats--name"><?php echo $post_cat; ?></div>
+					</div>
+					
+					<div class="news-thumb__tags">
+                    <?php
+                    if ( $post_tags ) {
+                        foreach( $post_tags as $tag ) {
+                        echo '<div>' . $tag->name . '</div>'; 
+                        }
+                    }
+                    ?>
+					</div>
+				</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="container--front news-single__content">

@@ -36,7 +36,7 @@ $categories = get_categories( array(
 				$cat_color = get_term_meta($term_id, 'cc_color', true);
 				?>
 				<?php
-				echo '<button style="border-color: ' . $cat_color . '; --hover-color:' . $cat_color . '" class="button btn btn-outline-secondary ' . $category . '" data-filter=".' . $category . '"><img src="' . z_taxonomy_image_url($term_id) . '" /><span>' . $category .  '</span></button>';
+				echo '<button style="border-color: ' . $cat_color . '; --hover-color:' . $cat_color . '" class="button btn btn-outline-secondary ' . sanitize_title($category) . '" data-filter=".' . sanitize_title($category) . '"><img src="' . z_taxonomy_image_url($term_id) . '" /><span>' . $category .  '</span></button>';
 			}
 		?>
 	</div>
@@ -56,8 +56,10 @@ $categories = get_categories( array(
 				<ul class="dropdown-menu button-group filters-button-group" aria-labelledby="dropdownMenuTags" data-filter-group="tags" id="tag">
 					<li><a class="button dropdown-item" href="#" data-filter="*" value="all"><?php _e("Wszystkie", "wapno-info"); ?></a></li>
 					<?php 
-						foreach ( get_the_tags() as $tag ) {
-							echo '<li><a class="button dropdown-item" href="#" data-filter=".' . $tag->name . '" >' . $tag->name . "</a></li>\n";
+						foreach ( get_tags() as $tag ) {
+							if ( !empty( $tag ) ) {
+								echo '<li><a class="button dropdown-item" href="#" data-filter=".' . sanitize_title($tag->name) . '" >' . $tag->name . "</a></li>\n";
+							}
 						}
 					?>
 				</ul>
@@ -70,7 +72,7 @@ $categories = get_categories( array(
 				<li><a class="button dropdown-item"  href="#" data-filter="*" value="all" >Wszystkie</a></li>
 				<?php 
 					foreach ( get_the_tags() as $tag ) {
-						echo '<li><a class="button dropdown-item" href="#" data-filter=".' . $tag->name . '" value="' . $tag->name . '">' . $tag->name . "</a></li>\n";
+						echo '<li><a class="button dropdown-item" href="#" data-filter=".' . sanitize_title($tag->name) . '" value="' . sanitize_title($tag->name) . '">' . $tag->name . "</a></li>\n";
 					}
 				?>
 				</ul>
@@ -135,7 +137,7 @@ if ( have_posts() ) :
 			$cats = array();
 			foreach (get_the_category($post_id) as $c) {
 			$cat = get_category($c);
-			array_push($cats, $cat->name);
+			array_push($cats, sanitize_title($cat->name));
 			}
 
 			if (sizeOf($cats) > 0) {

@@ -1,8 +1,7 @@
 <?php 
 // Custom WP query news
 $args_news = array(
-	'posts_per_page' => 6,
-	'nopaging' => true,
+	'posts_per_page' => '6',
 	'order' => 'DESC',
 );
 

@@ -36,9 +36,10 @@ get_template_part('components/breadcrumbs/breadcrumbs');
                             the_row();
                             $product_img = get_sub_field('product_img');
                             $product_icon = get_sub_field('product_icon');
+                            $product_icon_url = $product_icon['url'];
                             $product_id = get_sub_field( 'product_id' );
                         ?>
-                            <div class="col-md-6 col-lg-5 product" id="<?php echo esc_html( $product_id ); ?>">
+                            <div class="col-md-6 col-lg-5 product" id="<?php echo esc_html( $product_id ); ?>" style='--product-icon: url("<?=$product_icon_url;?>")'>
                                 <?php
                                 if ($product_img) : ?>
                                     <img class="product__img img-fluid" src="<?php echo esc_url($product_img['url']); ?>" alt="<?php echo esc_attr($product_img['alt']); ?>" />

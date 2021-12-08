@@ -15,7 +15,6 @@ if (function_exists('get_wpupa_url'))
 
 ?>
 <a class="news-thumbnail card" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-    <?php if ( has_post_thumbnail( ) ) : ?>
         <div class="news-thumbnail__img">
             <div class="news-thumbnail__tags">
                 <!-- <div class=""> -->
@@ -35,15 +34,18 @@ if (function_exists('get_wpupa_url'))
                     $post_cat = $category[0]->cat_name;
                     $term_id = $category[0]->term_id;
                     $cat_color = get_term_meta($term_id, 'cc_color', true);
-                    echo '<div style="background-color:' . $cat_color . '" >';
+                    echo '<div class="news-thumbnail__cats--wrap" style="background-color:' . $cat_color . '" >';
                     ?>
                     <img class="icon-bktowht" src="<?php echo z_taxonomy_image_url($term_id); ?>" />
+                    <!-- <div class="news-thumbnail__cats--name"><?php echo $post_cat; ?></div> -->
                     </div>
                 <!-- </div> -->
             </div>
+            <?php if ( has_post_thumbnail( ) ) : ?>
+
             <?php the_post_thumbnail( 'large' ); ?>
+            <?php endif; ?>
         </div>
-    <?php endif; ?>
     <div class="news-thumbnail__body card-body">
 
         <div class="d-flex news-thumbnail__meta align-items-center justify-content-between">

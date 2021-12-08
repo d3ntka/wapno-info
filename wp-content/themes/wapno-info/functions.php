@@ -532,8 +532,20 @@ function show_tags() {
  
     if ( ! empty( $post_tags ) ) {
         foreach ( $post_tags as $tag ) {
-            $output .= __( $tag->name ) . $separator;
+            $output .= __( sanitize_title($tag->name) ) . $separator;
         }
     }
     return trim( $output, $separator );
+}
+
+add_action( 'pre_get_posts', 'wpsites_no_limit_posts' );
+
+function wpsites_no_limit_posts( $query ) {
+
+if( $query->is_main_query() && !is_admin() && is_home() ) {
+
+$query->set( 'posts_per_page', '-1' );
+
+    }
+
 }
