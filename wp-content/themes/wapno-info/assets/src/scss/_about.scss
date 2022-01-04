@@ -1,4 +1,7 @@
 .about{
+    h2{
+        margin-bottom: 2rem;
+    }
     .styled-list ul{
         list-style: none;
         li{
@@ -20,6 +23,11 @@
     &__header{
         padding-bottom: 10rem;
     }
+    &_sect--txt{
+        @extend .condensed;
+        letter-spacing: 0.04rem;
+    }
+
     .goals{
         padding: 13rem 0;
         &__bg{
@@ -30,12 +38,19 @@
             // width: 57rem;
 
         }
+        .styled-list{
+            @extend .condensed;
+            letter-spacing: 0.04rem;
+            font-size: 2.4rem;
+        }
     }
     .teams{
         margin-top: 4rem;
+        padding-bottom: 3rem;
         &__cont{
             position: relative;
             z-index: 40;
+            padding-bottom: 7rem;
         }
         &__icon{
             position: absolute;
@@ -43,11 +58,21 @@
             left: -7rem;
             z-index: -1;
         }
+
     }
     .inter{
-        padding: 10rem 0;
+        padding-bottom: 10rem;
         &__associations{
             padding: 5rem 0;
+            align-items: stretch;
+            &--cont{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            &--txt{
+
+            }
         }
     }
     .producers{
@@ -137,5 +162,13 @@
     }
     &__footer{
         font-size: 1.7rem;
+        line-height: 2;
+    }
+    b,strong{
+        font-weight: 500;
+    }        
+    p{
+        @extend .condensed;
+        letter-spacing: 0.04rem;
     }
 }

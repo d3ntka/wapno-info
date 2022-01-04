@@ -23,8 +23,10 @@ get_template_part('components/breadcrumbs/breadcrumbs');
                 </h1>
             <?php endif; ?>
             <?php if ($section_txt = get_field('section_txt')) : ?>
-                <div class="about_sect--txt col-lg-9">
-                    <?php echo $section_txt; ?>
+                <div class="about_sect--txt col-lg-8">
+                    <p>
+                        <?php echo $section_txt; ?>
+                    </p>
                 </div>
             <?php endif; ?>
         </div>
@@ -70,7 +72,9 @@ get_template_part('components/breadcrumbs/breadcrumbs');
                             <?php endif; ?>
 
                             <?php if ($teams_txt = get_sub_field('teams_txt')) : ?>
-                                <?php echo esc_html($teams_txt); ?>
+                                <p>
+                                    <?php echo esc_html($teams_txt); ?>
+                                </p>
                             <?php endif; ?>
                         </div>
 
@@ -88,7 +92,9 @@ get_template_part('components/breadcrumbs/breadcrumbs');
                 <?php endif; ?>
                 <?php if ($associations_txt = get_field('associations_txt')) : ?>
                     <div class="col-md-6">
-                        <?php echo esc_html($associations_txt); ?>
+                        <p>
+                            <?php echo esc_html($associations_txt); ?>
+                        </p>
                     </div>
                 <?php endif; ?>
 
@@ -96,7 +102,7 @@ get_template_part('components/breadcrumbs/breadcrumbs');
                     <div class="row inter__associations">
                         <?php while (have_rows('associations_international')) :
                             the_row(); ?>
-                            <div class="col-md-6 col-xxl-3">
+                            <div class="col-md-6 col-xxl-3 inter__associations--cont">
                                 <?php
                                 $associations_inter_logo = get_sub_field('associations_inter_logo');
                                 if ($associations_inter_logo) : ?>
@@ -106,8 +112,10 @@ get_template_part('components/breadcrumbs/breadcrumbs');
                                 <?php endif; ?>
 
                                 <?php if ($associations_inter_txt = get_sub_field('associations_inter_txt')) : ?>
-                                    <div class="">
-                                        <?php echo esc_html($associations_inter_txt); ?>
+                                    <div class="inter__associations--txt">
+                                        <p>
+                                            <?php echo esc_html($associations_inter_txt); ?>
+                                        </p>
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -137,7 +145,7 @@ get_template_part('components/breadcrumbs/breadcrumbs');
                         the_row();
                         $producer_logo = get_sub_field('producer_logo');
                     ?>
-                        <div class="col-8 col-md-auto col-xxl-2 producer__col">
+                        <div class="col-6 col-sm-5 col-md-auto col-xxl-2 producer__col">
                             <div class="producer">
                                 <?php
                                 if ($producer_logo) : ?>
@@ -148,7 +156,9 @@ get_template_part('components/breadcrumbs/breadcrumbs');
 
                                 <?php if ($producer_txt = get_sub_field('producer_txt')) : ?>
                                     <div class="producer__txt">
+                                    <p>
                                         <?php echo $producer_txt; ?>
+                                    </p>    
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -173,7 +183,9 @@ get_template_part('components/breadcrumbs/breadcrumbs');
                             </h2>
                         <?php endif; ?>
                         <?php if ($amonit_txt = get_field('amonit_txt')) : ?>
-                            <?php echo $amonit_txt; ?>
+                            <p>
+                                <?php echo $amonit_txt; ?>
+                            </p>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -190,7 +202,9 @@ get_template_part('components/breadcrumbs/breadcrumbs');
                 </div>
                 <div class="col-lg-5">
                     <?php if ($history_txt = get_field('history_txt')) : ?>
-                        <?php echo $history_txt; ?>
+                        <p>
+                            <?php echo $history_txt; ?>
+                        </p>
                     <?php endif; ?>
                 </div>
             </div>
@@ -211,7 +225,9 @@ get_template_part('components/breadcrumbs/breadcrumbs');
 
                                 <?php if ($history_rptr_txt = get_sub_field('history_rptr_txt')) : ?>
                                     <div class="history__eras--txt pe-md-5 me-md-5">
+                                    <p>
                                         <?php echo $history_rptr_txt; ?>
+                                    </p>    
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -265,7 +281,9 @@ get_template_part('components/breadcrumbs/breadcrumbs');
     <?php if ($page_footer_txt = get_field('page_footer_txt')) : ?>
         <div class="container">
             <div class="about__footer">
-                <?php echo $page_footer_txt; ?>
+                <p>
+                    <?php echo $page_footer_txt; ?>
+                </p>
             </div>
         </div>
     <?php endif; ?>

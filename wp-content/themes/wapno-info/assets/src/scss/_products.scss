@@ -1,5 +1,8 @@
 .products_and_producers{
-
+p{
+    @extend .condensed;
+    letter-spacing: 0.04rem;
+}
 .products{
     &__news{
         padding-top: 5rem;
@@ -48,6 +51,9 @@
             font-size: 2rem;
             letter-spacing: 0.04rem;
             line-height: 1.4;
+            @include media-breakpoint-up(lg){
+                padding-left: 11rem;
+            }
         }
         &__img{
             border-radius: 2rem;
@@ -103,5 +109,7 @@
         }
     }
 }
-
+strong{
+    font-weight: 500;
+}
 }

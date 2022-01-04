@@ -79,7 +79,7 @@ get_template_part('components/breadcrumbs/breadcrumbs');
 								echo '<img class="news__avatar" src="'. $imgURL .'" alt="'. $authorname .'">';
 
 
-								echo get_the_author() . ' ' . get_the_date('d-m-Y '); 
+								echo get_the_author() . ' <span class="date">' . get_the_date('d-m-Y ') . '</span>'; 
 								?>
 
 							</div><!-- /.entry-meta -->

@@ -22,8 +22,10 @@ get_template_part('components/breadcrumbs/breadcrumbs');
                 </h1>
             <?php endif; ?>
             <?php if ($products_section_txt = get_field('products_section_txt')) : ?>
-                <div class="products__sect--txt col-lg-9">
+                <div class="products__sect--txt col-lg-8">
+                <p>
                     <?php echo $products_section_txt; ?>
+                </p>
                 </div>
             <?php endif; ?>
         </div>
@@ -61,7 +63,9 @@ get_template_part('components/breadcrumbs/breadcrumbs');
 
                                 <?php if ($product_txt = get_sub_field('product_txt')) : ?>
                                     <div class="product__txt">
-                                        <?php echo $product_txt; ?>
+                                        <p>
+                                            <?php echo $product_txt; ?>
+                                        </p>
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -81,7 +85,9 @@ get_template_part('components/breadcrumbs/breadcrumbs');
                 <?php endif; ?>
                 <?php if ($producers_section_txt = get_field('producers_section_txt')) : ?>
                     <div class="producers__sect--txt col-lg-6">
+                    <p>
                         <?php echo $producers_section_txt; ?>
+                    </p>    
                     </div>
                 <?php endif; ?>
 

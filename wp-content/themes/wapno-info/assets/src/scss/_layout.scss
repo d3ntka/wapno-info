@@ -22,14 +22,15 @@
     padding: 1rem 1rem 1rem 5rem;
     transform: translate(0,50%);
     transition: $transition;
-    i{
-        padding-right: 4rem;
-    }
-    span{
-        
+    &>div>span{
+        @extend .condensed;
+        letter-spacing: 0.04rem;
         font-size: 3rem;
         color: #fff;
         font-weight: 500;
+    }
+    i{
+        padding-right: 4rem;
     }
     .chevron_btn{
         margin-left: 1rem;
@@ -85,3 +86,16 @@
     box-shadow: none;
     text-transform: uppercase;
 }
+
+@mixin make-container($padding-x: $container-padding-x) {
+    width: 1846px;
+    padding-right: $padding-x;
+    padding-left: $padding-x;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  // Usage
+  .container--front {
+    @include make-container(0px);
+  }

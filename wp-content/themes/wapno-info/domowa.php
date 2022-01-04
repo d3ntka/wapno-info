@@ -39,7 +39,7 @@ $map_link = get_field( 'home_map_link' );
 					$link_title = $link['title'];
 					$link_target = $link['target'] ? $link['target'] : '_self';
 					?>
-					<a class="color-primary home__hero--link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?> 
+					<a class="color-primary home__hero--link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo $link_title; ?> 
 						<!-- <span> -->
 							<svg xmlns="http://www.w3.org/2000/svg" width="39.855" height="10.794" viewBox="0 0 39.855 10.794">
 								<g id="Group_25" data-name="Group 25" transform="translate(-307.321 -419.714)">
@@ -129,7 +129,7 @@ $map_link = get_field( 'home_map_link' );
 							</svg>
 						</i>
 						<span>
-							<?php echo esc_html( $map_link_title ); ?>
+							<?php echo $map_link_title; ?>
 						</span>
 					</a>
 				<?php endif; ?>
@@ -189,7 +189,7 @@ $map_link = get_field( 'home_map_link' );
 										?>
 										<a class="" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
 											<div class="products__button" style="background-image: url(<?=$products_button_icon_url?>)">
-												<span><?php echo esc_html( $link_title ); ?></span>
+												<span><?php echo $link_title; ?></span>
 											</div>
 										</a>
 									<?php endif; ?>

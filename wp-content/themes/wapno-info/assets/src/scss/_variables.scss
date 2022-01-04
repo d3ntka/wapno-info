@@ -4,6 +4,8 @@ $primary: #9FB7C2;
 $secondary: #95C11F;
 $grey: #6B6B6B;
 $border-light: #EFEFEF;
+$text-grey: #939491;
+
 
 $navbar-dark-color: rgba(255,255,255, 1);
 $navbar-dark-hover-color: $grey;
@@ -24,3 +26,10 @@ $cat_3: #44C11F;
 $cat_4: #1FC17F;
 $cat_5: #1FC1B6;
 
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1436px
+);

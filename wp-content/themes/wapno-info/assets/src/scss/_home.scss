@@ -10,6 +10,7 @@
             align-items: flex-start;
             flex-direction: column;
             justify-content: space-evenly;
+            position: relative;
             z-index: 10;
             @include media-breakpoint-down(xl){
                 min-height: 40rem;
@@ -20,10 +21,11 @@
                 background-image: url("../img/amonite.svg");
                 background-size: cover;
                 left: 0;
+                bottom: 0;
                 width: 51rem;
                 height: 41rem;
                 z-index: -1;
-                transform: translateY(5rem);
+                transform: translateX(-25rem);
             }
 
         }
@@ -33,6 +35,8 @@
             }
         }
         &--txt{
+            @extend .condensed;
+            letter-spacing: 0.04rem;
             font-size: 2.4rem;
             line-height: 1.7;
         }
@@ -149,14 +153,16 @@
         font-size: 2.2rem;
         border-radius: $border-radius;
         border: 2px solid $border-light;
-        width: 20rem;
-        height: 20rem;
-        margin-right: 1.6rem;
-        margin-top: 1.6rem;
+        width: 22.6rem;
+        height: 22.6rem;
+        margin-right: 1.40rem;
+        margin-top: 1.40rem;
         padding: 2rem;
         line-height: 1.0;
+        @extend .condensed;
+        font-weight: 500;
         i{
-            padding-bottom: 2rem;
+            padding-bottom: 2.8rem;
         }
         &:last-child{
             @include media-breakpoint-up(xxl){
@@ -206,15 +212,17 @@
             color: $dark;
             font-weight: 500;
             line-height: 1;
+            @extend .condensed;
+            letter-spacing: 0.04rem;
             box-shadow: $box-shadow;
             border-radius: $border-radius;
             height: 14rem;
-            padding: 2rem;
+            padding: 2.5rem 3rem 2rem 2rem;
             margin-top: 2rem;
             position: relative;
             background-repeat: no-repeat;
             background-size: auto;
-            background-position: 95% 10%;
+            background-position: 90% 14%;
             transition: $transition;
             &::after{
                 content: "";
@@ -229,38 +237,7 @@
                 box-shadow: $box-shadow-darker;
             }
         }
-        &__aux{
-            background-color: $primary;
-            margin-top: 5rem;
-            border-radius: 5.4rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #fff;
-            font-weight: 600;
-            padding: 1rem 1rem 1rem 5rem;
-            i{
-                padding-right: 4rem;
-            }
-            span{
-                font-size: 3rem;
-                font-weight: 500;
-            }
-            .chevron_btn{
-                background-color: #fff;
-                padding: 1rem;
-                border-radius: 50%;
-                width: 7rem;
-                height: 7rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-left: 1rem;
-                svg{
-                    transform: translateX(0.2rem);
-                }
-            }
-        }
+
         &:before{
             content: "";
             position: absolute;

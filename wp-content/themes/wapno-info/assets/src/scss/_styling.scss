@@ -3,6 +3,9 @@ html {
     overflow-x: hidden;
     background-color: $light;
     color: $dark;
+    @include media-breakpoint-down(sm){
+        font-size: 52.5%;
+    }
 }
 
 body {
@@ -19,6 +22,9 @@ h1,h2.big{
     font-weight: 700;
     line-height: 0.9;
     // margin-bottom: 2rem;
+    @include media-breakpoint-down(sm){
+        font-size: 6rem;
+    }
 }
 
 h2{
@@ -32,6 +38,10 @@ h3{
     font-size: 4rem;
     font-weight: 700;
     line-height: 0.9;
+}
+
+.condensed{
+    font-family: 'Barlow Condensed', sans-serif;
 }
 
 a{

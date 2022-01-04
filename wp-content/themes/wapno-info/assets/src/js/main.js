@@ -79,7 +79,7 @@ import * as bootstrap from 'bootstrap';
 var $grid = $('.isotope-cont').isotope({
 	itemSelector: '.isotope-item',
 	resizable: false,
-	layoutMode: 'fitRows',
+	// layoutMode: 'fitRows',
 	getSortData: {
 		date: '[date]'
 	},

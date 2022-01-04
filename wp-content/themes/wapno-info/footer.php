@@ -68,12 +68,12 @@
 									</svg>
 								</i>
 								<div>
-									<div>
+									<div class="contact__phone">
 										<a class="color-secondary" href="tel:+48 12 626 18 76">
 											+48 12 626 18 76
 										</a>
 									</div>
-									<div>
+									<div class="contact__mail">
 										<a class="color-dark" href="mailto:info@wapno-info.pl">
 											info@wapno-info.pl
 										</a>
@@ -98,8 +98,8 @@
 										</g>
 									</svg>
 								</i>
-								<div>
-									Stowarzyszenie Przemysłu <br>Wapienniczego
+								<div class="contact__desc">
+									Stowarzyszenie Przemysłu Wapienniczego
 									<br>ul. Toruńska 5
 									<br>30-065 Kraków
 								</div>
