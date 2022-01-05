@@ -93,9 +93,55 @@ get_template_part('components/breadcrumbs/breadcrumbs');
 
 						the_content();
 
+
+
 						wp_link_pages(array('before' => '<div class="page-link"><span>' . esc_html__('Pages:', 'wapno-info') . '</span>', 'after' => '</div>'));
 						?>
 					</div><!-- /.entry-content -->
+
+					<?php if ( have_rows( 'files' ) ) : ?>
+						<div class="single__files">
+							<div class="single__files--title"><?php _e("Powiązane pliki", "wapno-info"); ?>:</div>
+							<div class="single__files--row">
+								<?php while ( have_rows( 'files' ) ) :
+									the_row(); 
+									$file_object = get_sub_field( 'file_object' );
+									$file_object_title = $file_object['title'];
+									$file_object_url = $file_object['url'];
+									$filetype_tmp = wp_check_filetype( $file_object_url );
+									$filetype = $filetype_tmp['ext'];
+									if ( $file_object ) :
+									?>
+	
+										<a href="<?php echo esc_url( $file_object['url'] ); ?>" class="file__cont" title="<?php echo esc_attr($$file_object_title); ?>">
+	
+											<?php
+											$file_icon = get_sub_field( 'file_icon' ); 
+											$file_icon_default = get_template_directory_uri() . "/assets/img/file_icon.svg";
+
+											$file_icon_url = $file_icon['url'] ?: $file_icon_default ;
+
+											?>
+												<div class="file__icon">
+													<img src="<?php echo esc_url( $file_icon_url ); ?>" alt="<?php echo esc_attr( $file_icon['alt'] ); ?>" />
+												</div>
+
+											
+											<div class="file__name">
+												<?php echo esc_html( $file_object_title ); ?>
+											</div>
+											<div class="file__ext">
+												<?php echo ' .' . esc_html( $filetype ); ?>
+											</div>
+										</a>
+									<?php endif; ?>
+								<?php endwhile; ?>
+							</div>
+
+						</div>
+					<?php endif; ?>
+
+
 
 					<?php
 					edit_post_link(__('Edit', 'wapno-info'), '<span class="edit-link">', '</span>');
