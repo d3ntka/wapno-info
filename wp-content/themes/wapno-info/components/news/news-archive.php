@@ -3,6 +3,7 @@
 $args_news = array(
 	'posts_per_page' => '6',
 	'order' => 'DESC',
+    'post__not_in' => array(get_the_ID())
 );
 
 $news = new WP_Query( $args_news );
