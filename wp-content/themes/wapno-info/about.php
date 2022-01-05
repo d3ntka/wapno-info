@@ -132,7 +132,7 @@ get_template_part('components/breadcrumbs/breadcrumbs');
 
     <div class="producers">
         <div class="container">
-            <div class="row align-items-center justify-content-xl-end gap-4">
+            <div class="row align-items-center justify-content-xl-end">
                 <?php if ($producers_section_title = get_field('producers_section_title')) : ?>
                     <div class="col-xl-6 col-xxl-5 me-auto">
                         <h2 class="big producers__sect--title">

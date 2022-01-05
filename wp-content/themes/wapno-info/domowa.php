@@ -52,35 +52,60 @@ $map_link = get_field( 'home_map_link' );
 				<?php endif; ?>
 
 				</div>
+
+
+		<!-- <a href="<?php echo esc_url( $image['url'] ); ?>">
+		</a> -->
+
+
+
+
+
+
+
+
 				<div class="col-xl-8 order-0 order-xl-1 home__carousel">
 					<div id="carousel" class="carousel slide" data-bs-ride="carousel">
-						
+					<?php
+						$slider_img = get_field( 'slider_img' );
+						if ( $slider_img ) : 
+							?>
 						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/slider_1.png" class="d-block w-100" alt="...">
-							</div>
-							<div class="carousel-item">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/slider_2.png" class="d-block w-100" alt="...">
-							</div>
-							<div class="carousel-item">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/slider_3.png" class="d-block w-100" alt="...">
-							</div>
+							<?php 
+							$i = 0;
+							foreach( $slider_img as $image ) : ?>
+								<div class="carousel-item <?php if($i == 0) echo 'active';?>">
+									<img class="d-block w-100" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>"/>
+								</div>
+								<?php $i++ ;?>
+							<?php endforeach; ?>
 						</div>
+
 						<div class="carousel-nav">
 							<button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
 								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 								<span class="visually-hidden">Poprzedni</span>
 							</button>
 							<div class="carousel-indicators">
-								<button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-								<button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-								<button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+								
+							<?php 
+							$i = 0;
+							foreach( $slider_img as $image ) : ?>
+
+								<button type="button" data-bs-target="#carousel" data-bs-slide-to="<?=$i?>" class="<?php if($i == 0) echo 'active';?>" aria-current="true" aria-label="Slide <?=$i?>"></button>
+								<?php $i++ ;?>
+								
+							<?php endforeach; ?>
+								<!-- <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+								<button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
+							
 							</div>
 							<button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
 								<span class="carousel-control-next-icon" aria-hidden="true"></span>
 								<span class="visually-hidden">Następny</span>
 							</button>
 						</div>
+						<?php endif; ?>
 
 					</div>
 				</div>

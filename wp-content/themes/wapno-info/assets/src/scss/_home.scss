@@ -85,7 +85,7 @@
             }
         }
         .carousel-nav{
-            width: 20rem;
+            min-width: 20rem;
             height: 6rem;
             background-color: #fff;
             position: absolute;
@@ -95,20 +95,27 @@
             display: flex;
             align-items: center;
             // z-index: 1;
+
         }
         .carousel-control-next, .carousel-control-prev {
+            position: relative;
             z-index: 10;
-            width: 25%;
+            width: 6rem;
+            height: 6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .carousel-control-next{
-            right: 1rem;
+            padding-right: 1rem;
         }
         .carousel-control-prev{
-            left: 1rem;
+            padding-left: 1rem;
         }
         .carousel-indicators {
+            position: relative;
             border-radius: 3rem;
-            margin: 0;
+            margin: 0 auto;
             align-items: center;
             height: 100%;
             button{
@@ -118,6 +125,7 @@
                 border: 2px solid $dark;
                 background-color: #fff;
                 opacity: 1;
+
                 &.active{
                     background-color: $dark;
                 }

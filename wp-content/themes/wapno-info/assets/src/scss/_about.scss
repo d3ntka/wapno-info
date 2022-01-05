@@ -87,9 +87,12 @@
             justify-content: space-around;
             align-items: center;
             padding: 1rem;
-            &__col:last-child{
-                @include media-breakpoint-up(lg){
-                    margin-right: 9%;
+            &__col{
+                margin-bottom: 1.5rem;
+                &:last-child{
+                    @media (min-width:1399.98px){
+                        margin-right: 9%;
+                    }
                 }
             }
         }
