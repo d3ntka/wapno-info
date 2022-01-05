@@ -87,15 +87,9 @@
     text-transform: uppercase;
 }
 
-@mixin make-container($padding-x: $container-padding-x) {
-    width: 1846px;
-    padding-right: $padding-x;
-    padding-left: $padding-x;
+
+.container--front {
+    max-width: 1846px;
     margin-right: auto;
     margin-left: auto;
-  }
-  
-  // Usage
-  .container--front {
-    @include make-container(0px);
   }

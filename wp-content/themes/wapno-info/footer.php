@@ -37,7 +37,7 @@
 		<footer id="footer" class="footer">
 			<div class="container">
 				<div class="row justify-content-around">
-					<div class="col-md-6">
+					<div class="col-md-5 offset-xl-1">
 						<div class="titles">Znajdziesz nas tutaj</div>
 						<div class="contact">
 							<div class="contact__details">

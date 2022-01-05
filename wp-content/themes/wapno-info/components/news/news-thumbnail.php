@@ -3,11 +3,11 @@
 $authorID = get_the_author_meta('ID');
 $authorname = get_the_author_meta('display_name', $authorID);
 $post_tags = get_the_tags();
+$thumbnail_img = get_the_post_thumbnail_url( get_the_ID(),'large' );
 
 // Set the image size. Accepts all registered images sizes and array(int, int)
 $avatarSize = 'thumbnail';
 $imgURL='';
-
 
 // Get the image URL using the author ID and image size params
 if (function_exists('get_wpupa_url'))  
@@ -15,7 +15,7 @@ if (function_exists('get_wpupa_url'))
 
 ?>
 <a class="news-thumbnail card" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-        <div class="news-thumbnail__img">
+        <div class="news-thumbnail__img" style="--background:url('<?=$thumbnail_img;?>');">
             <div class="news-thumbnail__tags">
                 <!-- <div class=""> -->
                     <?php
@@ -41,10 +41,10 @@ if (function_exists('get_wpupa_url'))
                     </div>
                 <!-- </div> -->
             </div>
-            <?php if ( has_post_thumbnail( ) ) : ?>
+            <!-- <?php if ( has_post_thumbnail( ) ) : ?>
 
             <?php the_post_thumbnail( 'large' ); ?>
-            <?php endif; ?>
+            <?php endif; ?> -->
         </div>
     <div class="news-thumbnail__body card-body">
 
