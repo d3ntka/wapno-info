@@ -21,7 +21,7 @@ if ( $news->have_posts() ) {
     echo '</div>';
 
 } else {
-echo 'Nie było pościków dla Ciebie';
+echo 'Nie znaleziono wpisów';
 }
 
 wp_reset_postdata();

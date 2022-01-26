@@ -329,9 +329,9 @@
     "location": [
         [
             {
-                "param": "page",
+                "param": "page_template",
                 "operator": "==",
-                "value": "8"
+                "value": "domowa.php"
             }
         ]
     ],
@@ -344,5 +344,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1638730364
+    "modified": 1643195410
 }

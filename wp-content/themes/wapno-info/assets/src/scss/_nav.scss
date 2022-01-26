@@ -279,3 +279,23 @@
     color: $grey;
   }
 }
+
+
+.navbar .navbar-nav li.lang-item{
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  a{
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: 'Barlow';
+    color: rgba($color: $dark, $alpha: 0.5);
+  }
+  &.current-lang{
+    a{
+      color: $dark;
+    }
+  }
+  &.lang-item-first{
+    padding-left: 3rem;
+  }
+}
