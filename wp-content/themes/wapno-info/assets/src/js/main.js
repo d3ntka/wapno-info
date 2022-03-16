@@ -71,7 +71,15 @@ import * as bootstrap from 'bootstrap';
 // 	});
 // 	}
 // } )();
+function getHashFilter() {
+	var hash = location.hash;
+	// get filter=filterName
+	var matches = location.hash.match( /filter=([^&]+)/i );
+	var hashFilter = matches && matches[1];
+	return hashFilter && decodeURIComponent( hashFilter );
+  }
 
+  
 ( function ( $ ) {
 
 
@@ -100,6 +108,7 @@ var $grid = $('.isotope-cont').isotope({
 	// combine filters
 	var filterValue = concatValues( filters );
 	// set filter for Isotope
+	location.hash = 'filter=' + encodeURIComponent( filterValue );
 	$grid.isotope({ filter: filterValue });
   });
   
@@ -136,7 +145,29 @@ var $grid = $('.isotope-cont').isotope({
 	$(this).parents(".dropdown").find('.btn').val($(this).data('value'));
   });
   
+  var isIsotopeInit = false;
 
+  function onHashchange() {
+    var hashFilter = getHashFilter();
+    if ( !hashFilter && isIsotopeInit ) {
+      return;
+    }
+    isIsotopeInit = true;
+    // filter isotope
+    $grid.isotope({
+      itemSelector: '.isotope-item',
+      filter: hashFilter
+    });
+    // set selected class on button
+    if ( hashFilter ) {
+      $filters.find('.is-checked').removeClass('is-checked');
+      $filters.find('[data-filter="' + hashFilter + '"]').addClass('is-checked');
+    }
+  }
+
+  $(window).on( 'hashchange', onHashchange );
+  // trigger event handler to init Isotope
+  onHashchange();
 
 
 } )( jQuery );

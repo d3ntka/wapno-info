@@ -140,7 +140,7 @@
 									</g>
 								</svg>
 							</i>
-							<p>Copyright 2020 Stowarzyszenie Przemysłu Wapienniczego</p>
+							<p>Copyright 2022 Stowarzyszenie Przemysłu Wapienniczego</p>
 						</div>
 					</div>
 

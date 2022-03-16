@@ -74,9 +74,9 @@ $map_link = get_field( 'home_map_link' );
 							<?php 
 							$i = 0;
 							foreach( $slider_img as $image ) : ?>
-								<div class="carousel-item <?php if($i == 0) echo 'active';?>">
+								<a href="<?php echo esc_url( $link_url ); ?>" class="carousel-item <?php if($i == 0) echo 'active';?>">
 									<img class="d-block w-100" src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>"/>
-								</div>
+								</a>
 								<?php $i++ ;?>
 							<?php endforeach; ?>
 						</div>
@@ -115,8 +115,12 @@ $map_link = get_field( 'home_map_link' );
 					<div class="row home__cats--wrap">
 						<?php if ( have_rows( 'home_cats_rptr' ) ) : ?>
 							<?php while ( have_rows( 'home_cats_rptr' ) ) :
-								the_row(); ?>
-								<div class="home__cats">
+								the_row(); 
+								$home_cat_txt = get_sub_field( 'home_cat_txt' );
+								$home_cat_url_tmp = remove_accents($home_cat_txt);
+								$home_cat_url = sanitize_title_with_dashes($home_cat_url_tmp);
+								?>
+								<a class="home__cats" href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>#filter=*.<?php echo esc_html( $home_cat_url ); ?>">
 									<i>
 										<?php
 										$home_cat_icon = get_sub_field( 'home_cat_icon' );
@@ -125,11 +129,11 @@ $map_link = get_field( 'home_map_link' );
 										<?php endif; ?>
 									</i>
 									<span>
-										<?php if ( $home_cat_txt = get_sub_field( 'home_cat_txt' ) ) : ?>
+										<?php if ( $home_cat_txt ) : ?>
 											<?php echo $home_cat_txt; ?>
 										<?php endif; ?>
 									</span>
-								</div>
+								</a>
 							<?php endwhile; ?>
 						<?php endif; ?>
 					</div>

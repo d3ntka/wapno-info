@@ -169,6 +169,18 @@
         line-height: 1.0;
         @extend .condensed;
         font-weight: 500;
+        box-shadow: inset 0px 0px 0px 0px $primary;
+        transition: 0.2s ease-in-out;
+        span{
+            color: $dark;
+            transition: 0.2s ease-in-out;
+            max-width: 150px;
+        }
+        &:hover{
+            span{
+                color: $secondary;
+            }
+            box-shadow: inset 0px 0px 10px 0px $primary;        }
         i{
             padding-bottom: 2.8rem;
         }
@@ -180,10 +192,12 @@
     }
     &__find{
         background-color: $primary;
-        color: #fff;
         position: relative;
         z-index: 12;
         border: none;
+        span{
+            color: #fff;
+        }
         &::before{
             content: "";
             background-color: $primary;
@@ -198,7 +212,9 @@
 
         }
         &:hover{
-            color: #fff;
+            span{
+                color: #fff;
+            }
             &::before{
                 background-color: $secondary;
             }
