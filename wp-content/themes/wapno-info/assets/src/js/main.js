@@ -78,8 +78,23 @@ function getHashFilter() {
 	var hashFilter = matches && matches[1];
 	return hashFilter && decodeURIComponent( hashFilter );
   }
+  function oneHashFilter(){
+	var hashFilter = getHashFilter();
+	var oneHash = hashFilter;
+	console.log(oneHash);
 
-  
+	if (oneHash.length > 1) {
+		oneHash = oneHash.replace('*','');
+	};
+
+	console.log(oneHash);
+	// $('.dropdown #dropdownMenuTags').text(function() {
+	// 	return $('.dropdown').find('[data-filter="' + oneHash + '"]').text()
+	//   })
+	return oneHash;
+  }
+
+
 ( function ( $ ) {
 
 
@@ -145,10 +160,13 @@ var $grid = $('.isotope-cont').isotope({
 	$(this).parents(".dropdown").find('.btn').val($(this).data('value'));
   });
   
+
+
   var isIsotopeInit = false;
 
   function onHashchange() {
     var hashFilter = getHashFilter();
+    var oneHash = oneHashFilter();
     if ( !hashFilter && isIsotopeInit ) {
       return;
     }
@@ -160,10 +178,20 @@ var $grid = $('.isotope-cont').isotope({
     });
     // set selected class on button
     if ( hashFilter ) {
-      $filters.find('.is-checked').removeClass('is-checked');
-      $filters.find('[data-filter="' + hashFilter + '"]').addClass('is-checked');
+    //   filters.find('.is-checked').removeClass('is-checked');
+    //   filters.find('[data-filter="' + hashFilter + '"]').addClass('is-checked');
+	
+	// var dupaa = document.querySelectorAll('[data-filter=".budownictwo"]');
+	// dupaa.classList.add('dupa');
+
+		// $(".dropdown-menu li a").parents(".dropdown").find('[data-filter="' + oneHash + '"]').addClass("dupa");
+		// console.log(oneHash);
+		$('.dropdown #dropdownMenuTags').text(function() {
+			return $('.dropdown').find('[data-filter="' + oneHash + '"]').text()
+		  })
     }
   }
+
 
   $(window).on( 'hashchange', onHashchange );
   // trigger event handler to init Isotope
@@ -171,3 +199,5 @@ var $grid = $('.isotope-cont').isotope({
 
 
 } )( jQuery );
+
+
