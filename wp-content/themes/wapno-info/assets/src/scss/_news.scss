@@ -161,15 +161,16 @@
             // z-index: -1;
             margin: 0 1rem;
             // height: 30rem;
-            // border: 2px solid $primary;
+            // border: 4px solid transparent;
             border-radius: 1.2rem;
             aspect-ratio: 4.48/3;
             // background-color: rgba($color: $primary, $alpha: 0.2);
             background: rgb(159,183,194);
-            background: var(--background),linear-gradient(120deg, rgba(159,183,194,0.2) 20%, rgba(159,183,194,0.4) 70%); 
+            background: var(--background),linear-gradient(120deg, rgba(159,183,194,0.1) 20%, rgba(159,183,194,0.3) 70%); 
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
+            overflow: hidden;
             // .wp-post-image{
             //     border-radius: 1.2rem;
             //     width: 100%;
@@ -204,7 +205,26 @@
             flex-wrap: wrap;
             bottom: 1.6rem;
             left: 0;
-
+            &--icon{
+                display: grid;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                .icon{
+                    max-height: 15rem;
+                    width: 15rem;
+                    height: 100%;
+                    object-fit: contain;
+                    background-color: var(--cat-color);
+                    mask: var(--cat-icon);
+                    mask-repeat: no-repeat;
+                    mask-size: contain;
+                    mask-position: center center;
+                    // background-image: var(--cat-icon);
+                    // filter: ;
+                }
+            }
             // ikona kategorii
             &--wrap{
                 // padding: 1rem 1.5rem;
