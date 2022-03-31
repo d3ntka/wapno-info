@@ -1,31 +1,31 @@
 // Webpack Imports
-import * as bootstrap from 'bootstrap';
+import * as bootstrap from "bootstrap";
 // import isotope from 'isotope-layout';
 
-( function () {
-	'use strict';
+(function () {
+  "use strict";
 
-	// Focus input if Searchform is empty
-	[].forEach.call( document.querySelectorAll( '.search-form' ), ( el ) => {
-		el.addEventListener( 'submit', function ( e ) {
-			var search = el.querySelector( 'input' );
-			if ( search.value.length < 1 ) {
-				e.preventDefault();
-				search.focus();
-			}
-		} );
-	} );
+  // Focus input if Searchform is empty
+  [].forEach.call(document.querySelectorAll(".search-form"), (el) => {
+    el.addEventListener("submit", function (e) {
+      var search = el.querySelector("input");
+      if (search.value.length < 1) {
+        e.preventDefault();
+        search.focus();
+      }
+    });
+  });
 
-	// Initialize Popovers: https://getbootstrap.com/docs/5.0/components/popovers
-	var popoverTriggerList = [].slice.call( document.querySelectorAll( '[data-bs-toggle="popover"]' ) );
-	var popoverList = popoverTriggerList.map( function ( popoverTriggerEl ) {
-		return new bootstrap.Popover( popoverTriggerEl, {
-			trigger: 'focus',
-		} );
-	} );
-
-} )();
-
+  // Initialize Popovers: https://getbootstrap.com/docs/5.0/components/popovers
+  var popoverTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="popover"]')
+  );
+  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl, {
+      trigger: "focus",
+    });
+  });
+})();
 
 // ( function () {
 
@@ -39,7 +39,7 @@ import * as bootstrap from 'bootstrap';
 // 	// filter functions
 // 	var filterFns = {
 // 	};
-	
+
 // 	// bind filter button click
 // 	var filtersElem = document.querySelector('.filters-button-group');
 // 	filtersElem.addEventListener( 'click', function( event ) {
@@ -52,7 +52,7 @@ import * as bootstrap from 'bootstrap';
 // 		// filterValue = filterFns[ filterValue ] || filterValue;
 // 		iso.arrange({ filter: filterValue });
 // 	});
-	
+
 // 	// change is-checked class on buttons
 // 	var buttonGroups = document.querySelectorAll('.button-group');
 // 	for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
@@ -72,132 +72,131 @@ import * as bootstrap from 'bootstrap';
 // 	}
 // } )();
 function getHashFilter() {
-	var hash = location.hash;
-	// get filter=filterName
-	var matches = location.hash.match( /filter=([^&]+)/i );
-	var hashFilter = matches && matches[1];
-	return hashFilter && decodeURIComponent( hashFilter );
-  }
-  function oneHashFilter(){
-	var hashFilter = getHashFilter();
-	var oneHash = hashFilter;
-	console.log(oneHash);
+  var hash = location.hash;
+  // get filter=filterName
+  var matches = location.hash.match(/filter=([^&]+)/i);
+  var hashFilter = matches && matches[1];
+  return hashFilter && decodeURIComponent(hashFilter);
+}
 
-	if (oneHash.length > 1) {
-		oneHash = oneHash.replace('*','');
-	};
 
-	console.log(oneHash);
-	// $('.dropdown #dropdownMenuTags').text(function() {
-	// 	return $('.dropdown').find('[data-filter="' + oneHash + '"]').text()
-	//   })
-	return oneHash;
+// Poprawić funkcję żeby nie wywalała błędu przy pustym oneHash albo startowała tylko raz
+
+function oneHashFilter() {
+  var hashFilter = getHashFilter();
+  var oneHash = hashFilter;
+  console.log(oneHash);
+
+  if (oneHash.length > 1) {
+    oneHash = oneHash.replace("*", "");
   }
 
+  console.log(oneHash);
+  // $('.dropdown #dropdownMenuTags').text(function() {
+  // 	return $('.dropdown').find('[data-filter="' + oneHash + '"]').text()
+  //   })
+  return oneHash;
+}
 
-( function ( $ ) {
-
-
-// init Isotope
-var $grid = $('.isotope-cont').isotope({
-	itemSelector: '.isotope-item',
-	resizable: false,
-	// layoutMode: 'fitRows',
-	getSortData: {
-		date: '[date]'
-	},
-	sortBy: 'date',
-	sortAscending: false
+(function ($) {
+  // init Isotope
+  var $grid = $(".isotope-cont").isotope({
+    itemSelector: ".isotope-item",
+    resizable: false,
+    // layoutMode: 'fitRows',
+    getSortData: {
+      date: "[date]",
+    },
+    sortBy: "date",
+    sortAscending: false,
   });
-  
+
   // store filter for each group
   var filters = {};
-  
-  $('.filters').on( 'click', '.button', function( event ) {
-	var $button = $( event.currentTarget );
-	// get group key
-	var $buttonGroup = $button.parents('.button-group');
-	var filterGroup = $buttonGroup.attr('data-filter-group');
-	// set filter for group
-	filters[ filterGroup ] = $button.attr('data-filter');
-	// combine filters
-	var filterValue = concatValues( filters );
-	// set filter for Isotope
-	location.hash = 'filter=' + encodeURIComponent( filterValue );
-	$grid.isotope({ filter: filterValue });
+
+  $(".filters").on("click", ".button", function (event) {
+    var $button = $(event.currentTarget);
+    // get group key
+    var $buttonGroup = $button.parents(".button-group");
+    var filterGroup = $buttonGroup.attr("data-filter-group");
+    // set filter for group
+    filters[filterGroup] = $button.attr("data-filter");
+    // combine filters
+    var filterValue = concatValues(filters);
+    // set filter for Isotope
+    location.hash = "filter=" + encodeURIComponent(filterValue);
+    $grid.isotope({ filter: filterValue });
   });
-  
+
   // change is-checked class on buttons
-  $('.button-group').each( function( i, buttonGroup ) {
-	var $buttonGroup = $( buttonGroup );
-	$buttonGroup.on( 'click', 'button', function( event ) {
-	  $buttonGroup.find('.is-checked').removeClass('is-checked');
-	  var $button = $( event.currentTarget );
-	  $button.addClass('is-checked');
-	});
+  $(".button-group").each(function (i, buttonGroup) {
+    var $buttonGroup = $(buttonGroup);
+    $buttonGroup.on("click", "button", function (event) {
+      $buttonGroup.find(".is-checked").removeClass("is-checked");
+      var $button = $(event.currentTarget);
+      $button.addClass("is-checked");
+    });
   });
-	
+
   // flatten object by concatting values
-  function concatValues( obj ) {
-	var value = '';
-	for ( var prop in obj ) {
-	  value += obj[ prop ];
-	}
-	return value;
+  function concatValues(obj) {
+    var value = "";
+    for (var prop in obj) {
+      value += obj[prop];
+    }
+    return value;
   }
 
-  $('.sort-by-button-group').on( 'click', '.asc', function() {
-	// var sortByValue = $(this).attr('data-sort-by');
-	$grid.isotope({ sortAscending : true });
+  $(".sort-by-button-group").on("click", ".asc", function () {
+    // var sortByValue = $(this).attr('data-sort-by');
+    $grid.isotope({ sortAscending: true });
   });
-  $('.sort-by-button-group').on( 'click', '.desc', function() {
-	$grid.isotope({ sortAscending : false });
+  $(".sort-by-button-group").on("click", ".desc", function () {
+    $grid.isotope({ sortAscending: false });
   });
 
-	//   ustawienie wyboru na dropdown
-  $(".dropdown-menu li a").on( 'click' , function(){
-	$(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
-	$(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+  //   ustawienie wyboru na dropdown
+  $(".dropdown-menu li a").on("click", function () {
+    $(this)
+      .parents(".dropdown")
+      .find(".btn")
+      .html($(this).text() + ' <span class="caret"></span>');
+    $(this).parents(".dropdown").find(".btn").val($(this).data("value"));
   });
-  
-
 
   var isIsotopeInit = false;
 
   function onHashchange() {
     var hashFilter = getHashFilter();
     var oneHash = oneHashFilter();
-    if ( !hashFilter && isIsotopeInit ) {
+    if (!hashFilter && isIsotopeInit) {
       return;
     }
     isIsotopeInit = true;
     // filter isotope
     $grid.isotope({
-      itemSelector: '.isotope-item',
-      filter: hashFilter
+      itemSelector: ".isotope-item",
+      filter: hashFilter,
     });
     // set selected class on button
-    if ( hashFilter ) {
-    //   filters.find('.is-checked').removeClass('is-checked');
-    //   filters.find('[data-filter="' + hashFilter + '"]').addClass('is-checked');
-	
-	// var dupaa = document.querySelectorAll('[data-filter=".budownictwo"]');
-	// dupaa.classList.add('dupa');
+    if (hashFilter) {
+      //   filters.find('.is-checked').removeClass('is-checked');
+      //   filters.find('[data-filter="' + hashFilter + '"]').addClass('is-checked');
 
-		// $(".dropdown-menu li a").parents(".dropdown").find('[data-filter="' + oneHash + '"]').addClass("dupa");
-		// console.log(oneHash);
-		$('.dropdown #dropdownMenuTags').text(function() {
-			return $('.dropdown').find('[data-filter="' + oneHash + '"]').text()
-		  })
+      // var dupaa = document.querySelectorAll('[data-filter=".budownictwo"]');
+      // dupaa.classList.add('dupa');
+
+      // $(".dropdown-menu li a").parents(".dropdown").find('[data-filter="' + oneHash + '"]').addClass("dupa");
+      // console.log(oneHash);
+      $(".dropdown #dropdownMenuTags").text(function () {
+        return $(".dropdown")
+          .find('[data-filter="' + oneHash + '"]')
+          .text();
+      });
     }
   }
 
-
-  $(window).on( 'hashchange', onHashchange );
+  $(window).on("hashchange", onHashchange);
   // trigger event handler to init Isotope
   onHashchange();
-
-
-} )( jQuery );
-
-
+})(jQuery);
