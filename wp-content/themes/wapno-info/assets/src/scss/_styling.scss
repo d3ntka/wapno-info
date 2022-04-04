@@ -3,8 +3,11 @@ html {
     overflow-x: hidden;
     background-color: $light;
     color: $dark;
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(lg){
         font-size: 52.5%;
+    }
+    @include media-breakpoint-down(md){
+        font-size: 45%;
     }
 }
 

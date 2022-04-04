@@ -300,6 +300,8 @@
     }
   }
   &.lang-item-first{
-    padding-left: 3rem;
+    @include media-breakpoint-up(lg){
+      padding-left: 3rem;
+  }
   }
 }
